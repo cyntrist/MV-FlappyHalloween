@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -53,11 +51,15 @@ public class GameManager : MonoBehaviour
     private void OnPlayerDies()
     {
         SendMessage("GameOver");
-        SendMessage("Stop");
         _levelManager.SendMessage("GameOver");
+        SendMessage("Stop");
         GetComponent<InputComponent>().enabled = false; // Disabling input after call
+        _isGameRunning = false;
     }
     #endregion
 
-    // Start() was removed because it was empty
+    private void Start()
+    {
+        _isGameRunning = true;
+    }
 }

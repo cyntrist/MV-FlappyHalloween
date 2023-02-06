@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LifeComponent : MonoBehaviour
@@ -19,9 +17,8 @@ public class LifeComponent : MonoBehaviour
     /// <param name="collision">Colliding element collision</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision.");
         _gameManager.SendMessage("OnPlayerDies");
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
     #endregion
 }

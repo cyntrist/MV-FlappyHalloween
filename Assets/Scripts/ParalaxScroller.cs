@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParalaxScroller : MonoBehaviour
@@ -18,7 +16,7 @@ public class ParalaxScroller : MonoBehaviour
 
     #region References
     /// <summary>
-    /// Reference to own Sprite Renderer ** Redundant ??? **
+    /// Reference to own Sprite Renderer 
     /// </summary>
     private SpriteRenderer _mySpriteRenderer;
     /// <summary>
@@ -26,14 +24,14 @@ public class ParalaxScroller : MonoBehaviour
     /// </summary>
     private Material _myMaterial;
     #endregion
-    
+
     #region methods
     /// <summary>
     /// Disables the component, so the texture movement stops
     /// </summary>
     public void Stop()
     {
-        _scrollSpeed = 0;
+        enabled = false;
     }
     #endregion
 

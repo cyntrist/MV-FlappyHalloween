@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LateralMovementComponent : MonoBehaviour
@@ -18,7 +16,7 @@ public class LateralMovementComponent : MonoBehaviour
     /// </summary>
     private Transform _myTransform;
     /// <summary>
-    /// Reference to Game Manager ** Useless variable ??? **
+    /// Reference to Game Manager 
     /// </summary>
     private GameManager _gameManager;
     #endregion
@@ -26,12 +24,16 @@ public class LateralMovementComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myTransform = GetComponent<Transform>();
+        _myTransform = transform;
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += _speed * Time.deltaTime * Vector3.left;
+        if (_gameManager != null && _gameManager.IsGameRunning)
+        {
+            _myTransform.position += _speed * Time.deltaTime * Vector3.left;
+        }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -27,7 +25,6 @@ public class UIManager : MonoBehaviour
     {
         if (_gameOverObject != null)
         {
-            Debug.Log("Canvas object found.");
             _gameOverObject.SetActive(false);
         }
     }

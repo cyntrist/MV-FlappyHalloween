@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -12,8 +10,8 @@ public class LevelManager : MonoBehaviour
     private void GameOver()
     {
         foreach (ParalaxScroller ps in GetComponentsInChildren<ParalaxScroller>())
-        {   
-            ps.Stop() ;
+        {
+            ps.Stop();
         }
     }
     #endregion

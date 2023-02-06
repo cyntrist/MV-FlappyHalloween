@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclesGenerator : MonoBehaviour
@@ -45,14 +43,16 @@ public class ObstaclesGenerator : MonoBehaviour
     /// <summary>
     /// Method to disable the script and thus stop obsctacles generation
     /// </summary>
-    private void Stop()
+    private void Stop() //////////////////////////////////////////////////////////////////// Destroy diferido?
     {
+        /* no se destruyen! solo se paran
         foreach (var clone in GameObject.FindGameObjectsWithTag("Clone"))
         {
             Destroy(clone);
         }
-        Debug.Log("Stopped obstacle generation.");
-        Behaviour.Destroy(this);
+        Destroy(this);
+        */
+        enabled = false;
     }
     #endregion
 
@@ -61,12 +61,11 @@ public class ObstaclesGenerator : MonoBehaviour
     {
         _elapsedTime += Time.deltaTime;
 
-        if(_elapsedTime >= _nextSpawnTime) 
+        if (_elapsedTime >= _nextSpawnTime)
         {
             Instantiate(_prefabs[Random.Range(0, _prefabs.Length)], _spawnTransform.position, Quaternion.identity);
             _elapsedTime = 0.0f;
             _nextSpawnTime = Random.Range(_minTimeInterval, _maxTimeInterval);
-            Debug.Log("Instantiated obstacle.");
         }
     }
 }

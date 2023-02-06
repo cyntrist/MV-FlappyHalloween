@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LimitedTimeLife : MonoBehaviour
@@ -18,8 +16,7 @@ public class LimitedTimeLife : MonoBehaviour
     /// </summary>
     private void SelfDestroy()
     {
-        Object.Destroy(this.gameObject, _maxLifetime);
-        Debug.Log("Object destroyed.");
+        Destroy(gameObject, _maxLifetime);
     }
     #endregion
 
